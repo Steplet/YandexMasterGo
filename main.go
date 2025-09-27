@@ -19,7 +19,7 @@ type ServerParams struct {
 }
 
 func main() {
-	errCounter := 0
+	//errCounter := 0
 	for {
 		resp, err := http.Get("http://srv.msk01.gigacorp.local/_stats")
 		if err != nil {
@@ -30,15 +30,18 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		if errCounter == 3 {
-			fmt.Println("Unable to fetch server statistic")
-			return
-		}
-		if resp.StatusCode != 200 || resp.Header.Get("Content-Type") != "text/plain" {
-			errCounter++
-			err = resp.Body.Close()
-			continue
-		}
+		//if errCounter == 3 {
+		//	fmt.Println("Unable to fetch server statistic")
+		//	return
+		//}
+		//if resp.StatusCode != 200 || resp.Header.Get("Content-Type") != "text/plain" {
+		//	errCounter++
+		//	err = resp.Body.Close()
+		//	if err != nil {
+		//		panic(err)
+		//	}
+		//	continue
+		//}
 		err = resp.Body.Close()
 		if err != nil {
 			panic(err)
