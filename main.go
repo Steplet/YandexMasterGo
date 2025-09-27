@@ -61,16 +61,14 @@ func main() {
 
 func convSliceToParams(stringParams string) (ServerParams, error) {
 	listParams := strings.Split(stringParams, ",")
-	digitList := make([]int, 7)
+	var digitList []int
 	for _, param := range listParams {
 		num, err := strconv.Atoi(strings.TrimSpace(param))
 		if err != nil {
 			return ServerParams{LoadAverage: -12}, err
 		}
-		fmt.Printf("%d:", num)
 		digitList = append(digitList, num)
 	}
-	fmt.Printf("String list: %v\n", listParams)
 	fmt.Printf("Digit list: %v\n", digitList)
 	serverParams := ServerParams{
 		LoadAverage: int64(digitList[0]),
