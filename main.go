@@ -35,13 +35,9 @@ func getData() []byte {
 	if err != nil {
 		panic(err)
 	}
+	defer resp.Body.Close()
 
 	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		panic(err)
-	}
-
-	err = resp.Body.Close()
 	if err != nil {
 		panic(err)
 	}
