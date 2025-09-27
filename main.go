@@ -30,18 +30,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		//if errCounter == 3 {
-		//	fmt.Println("Unable to fetch server statistic")
-		//	return
-		//}
-		//if resp.StatusCode != 200 || resp.Header.Get("Content-Type") != "text/plain" {
-		//	errCounter++
-		//	err = resp.Body.Close()
-		//	if err != nil {
-		//		panic(err)
-		//	}
-		//	continue
-		//}
+
 		err = resp.Body.Close()
 		if err != nil {
 			panic(err)
@@ -92,7 +81,7 @@ func convSliceToParams(stringParams string) (ServerParams, error) {
 		NetSpeed:    int64(digitList[5]),
 		NetExp:      int64(digitList[6]),
 	}
-	fmt.Println(serverParams)
+	//fmt.Println(serverParams)
 
 	return serverParams, nil
 }
