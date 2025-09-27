@@ -19,31 +19,34 @@ type ServerParams struct {
 }
 
 func main() {
-	//errCounter := 0
+
 	for {
-		resp, err := http.Get("http://srv.msk01.gigacorp.local/_stats")
+		data := getData()
+		serverParams, err := convSliceToParams(string(data))
 		if err != nil {
 			panic(err)
-		}
-
-		body, err := io.ReadAll(resp.Body)
-		if err != nil {
-			panic(err)
-		}
-
-		err = resp.Body.Close()
-		if err != nil {
-			panic(err)
-		}
-
-		serverParams, err := convSliceToParams(string(body))
-		if err != nil {
-			panic(err)
-		}
-		//fmt.Println(serverParams)
+		} //fmt.Println(serverParams)
 		checkValue(serverParams)
 
 	}
+}
+func getData() []byte {
+	resp, err := http.Get("http://srv.msk01.gigacorp.local/_stats")
+	if err != nil {
+		panic(err)
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+
+	err = resp.Body.Close()
+	if err != nil {
+		panic(err)
+	}
+
+	return body
 }
 
 func checkValue(serverParams ServerParams) {
