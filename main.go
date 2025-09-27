@@ -48,13 +48,13 @@ func checkValue(serverParams ServerParams) {
 	if serverParams.LoadAverage > 30 {
 		fmt.Printf("Load Average is too high: %d\n", serverParams.LoadAverage)
 	}
-	if (serverParams.RAMExp*100)/serverParams.RAMSize < 80 {
+	if (serverParams.RAMExp*100)/serverParams.RAMSize > 80 {
 		fmt.Printf("Memory usage too high: %d\n", (serverParams.RAMExp*100)/serverParams.RAMSize)
 	}
-	if (serverParams.DiskExp*100)/serverParams.DiskSize < 90 {
+	if (serverParams.DiskExp*100)/serverParams.DiskSize > 90 {
 		fmt.Printf("Free disk space is too low: %d Mb left\n", (serverParams.DiskExp*100)/serverParams.DiskSize)
 	}
-	if (serverParams.NetExp*100)/serverParams.NetSpeed < 90 {
+	if (serverParams.NetExp*100)/serverParams.NetSpeed > 90 {
 		fmt.Printf("Network bandwidth usage high: %d Mbit/s available\n", (serverParams.NetExp*100)/serverParams.NetSpeed)
 	}
 }
