@@ -69,6 +69,8 @@ func convSliceToParams(stringParams string) (ServerParams, error) {
 		}
 		digitList = append(digitList, num)
 	}
+	fmt.Printf("String list: %v\n", listParams)
+	fmt.Printf("Digit list: %v\n", digitList)
 	serverParams := ServerParams{
 		LoadAverage: int64(digitList[0]),
 		RAMSize:     int64(digitList[1]),
