@@ -38,7 +38,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(serverParams)
+		//fmt.Println(serverParams)
 		checkValue(serverParams)
 
 	}
