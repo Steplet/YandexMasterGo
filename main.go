@@ -55,7 +55,7 @@ func checkValue(serverParams ServerParams) {
 		fmt.Printf("Free disk space is too low: %d Mb left\n", (serverParams.DiskSize-serverParams.DiskExp)/(1024*1024))
 	}
 	if (serverParams.NetExp*100)/serverParams.NetSpeed > 90 {
-		fmt.Printf("Network bandwidth usage high: %d Mbit/s available\n", (serverParams.NetSpeed-serverParams.NetExp)/(1024*1024))
+		fmt.Printf("Network bandwidth usage high: %d Mbit/s available\n", (serverParams.NetSpeed-serverParams.NetExp)/(1000*1000))
 	}
 }
 
