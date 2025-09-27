@@ -29,6 +29,10 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
+		err = resp.Body.Close()
+		if err != nil {
+			panic(err)
+		}
 
 		serverParams, err := convSliceToParams(string(body))
 		if err != nil {
